@@ -8,17 +8,20 @@ function Detail() {
   const [movie, setMovies] = useState();
   const { id } = useParams();
 
-  const getMovie = async () => {
-    const json = await (
-      await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
-    ).json();
-    console.log(json.data.movie);
-    setMovies(json.data.movie);
-    setLoading(false);
-  };
   useEffect(() => {
+    if (!id) return;
+    const getMovie = async () => {
+      setLoading(true);
+      const json = await (
+        await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+      ).json();
+      console.log(json.data.movie);
+      setMovies(json.data.movie);
+      setLoading(false);
+    };
+    
     getMovie();
-  });
+  }, [id]);
   return (
     <div>
       {loading ? (

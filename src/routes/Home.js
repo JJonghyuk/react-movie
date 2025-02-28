@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Movie from "../components/Movie";
 import Loading from "../components/Loading";
-import Header from "../components/Header";
+import MovieList from "../components/MovieList";
 
 const Wrap = styled.div`
   overflow: hidden;
@@ -19,16 +19,18 @@ const Box = styled.div`
   gap: 40px 20px;
 `;
 
-function Home() {
+function Home({ headerState }) {
   const [loading, setLoading] = useState(true);
-  const [isActive, setIsActive] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [moviePage, setMoviePage] = useState(1); // 현재 페이지 상태 추가
+  const IS_ACTIVE = "isActive";
 
-  const getMovies = async () => {
-    // const response = await fetch("https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year")
-    // const json = await response.json();
+  const getMovies = async (page = 1) => {
+    setLoading(true);
     const json = await (
-      await fetch("https://yts.mx/api/v2/list_movies.json?sort_by=like_count")
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?sort_by=like_count&page=${page}`,
+      )
     ).json();
     if (json.data && json.data.movies) {
       console.log(json.data.movies);
@@ -36,17 +38,16 @@ function Home() {
     } else {
       console.warn("영화 정보를 찾을 수 없습니다.");
     }
-    // setMovies(json.boxOfficeResult.dailyBoxOfficeList);
     setLoading(false);
-    setIsActive(true);
   };
 
   useEffect(() => {
-    getMovies();
-  }, []);
+    getMovies(moviePage);
+    headerState(IS_ACTIVE);
+  }, [moviePage, headerState]);
+
   return (
     <div>
-      {isActive ? <Header isActive={"isActive"} /> : <Header />}
       {loading ? (
         <Loading />
       ) : (
@@ -63,6 +64,7 @@ function Home() {
               />
             ))}
           </Box>
+          <MovieList moviePage={setMoviePage} movieIndex={moviePage} />
         </Wrap>
       )}
     </div>

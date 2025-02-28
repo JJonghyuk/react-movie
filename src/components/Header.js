@@ -31,7 +31,9 @@ const LogoLink = styled(Link)`
 function Header({ isActive }) {
   return (
     <Logo className="logo">
-      <LogoLink className={isActive}>JJONGFILX</LogoLink>
+      <LogoLink className={isActive} to={`${process.env.PUBLIC_URL}`}>
+        JJONGFILX
+      </LogoLink>
     </Logo>
   );
 }
