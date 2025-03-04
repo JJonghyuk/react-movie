@@ -13,6 +13,7 @@ const motion = keyframes`
 `;
 
 const Logo = styled.h1`
+  z-index: 1;
   position: absolute;
   top: 20px;
   left: 40px;

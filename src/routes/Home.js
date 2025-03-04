@@ -7,7 +7,10 @@ import MovieList from "../components/MovieList";
 const Wrap = styled.div`
   overflow: hidden;
   margin: 0 auto;
-  padding: 80px 20px;
+`;
+
+const Inner = styled(Wrap)`
+  padding: 80px 40px;
   max-width: 1440px;
 `;
 
@@ -47,11 +50,11 @@ function Home({ headerState }) {
   }, [moviePage, headerState]);
 
   return (
-    <div>
+    <Wrap>
       {loading ? (
         <Loading />
       ) : (
-        <Wrap>
+        <Inner>
           <Box>
             {movies.map((movie) => (
               <Movie
@@ -65,9 +68,9 @@ function Home({ headerState }) {
             ))}
           </Box>
           <MovieList moviePage={setMoviePage} movieIndex={moviePage} />
-        </Wrap>
+        </Inner>
       )}
-    </div>
+    </Wrap>
   );
 }
 
