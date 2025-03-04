@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/react-movie/static/css/main.db96231c.css",
-    "main.js": "/react-movie/static/js/main.16a8c6ff.js",
+    "main.js": "/react-movie/static/js/main.0a738442.js",
     "static/media/icon_loading_transparent.gif": "/react-movie/static/media/icon_loading_transparent.c3c5f1a2ba141f97ae35.gif",
     "static/media/icon_rating_star.png": "/react-movie/static/media/icon_rating_star.d0cbd94e0a4a62fc2bf4.png",
+    "static/media/icon_clock_black.svg": "/react-movie/static/media/icon_clock_black.da13ea6f1277b1003603c7e6d55cac3b.svg",
     "index.html": "/react-movie/index.html",
     "main.db96231c.css.map": "/react-movie/static/css/main.db96231c.css.map",
-    "main.16a8c6ff.js.map": "/react-movie/static/js/main.16a8c6ff.js.map"
+    "main.0a738442.js.map": "/react-movie/static/js/main.0a738442.js.map"
   },
   "entrypoints": [
     "static/css/main.db96231c.css",
-    "static/js/main.16a8c6ff.js"
+    "static/js/main.0a738442.js"
   ]
 }
