@@ -127,8 +127,8 @@ function Movie({ id, coverImg, title, year, rating }) {
       <MovieBox>
         <MovieTitle>{title}</MovieTitle>
         <MovieInfo>
-          <MovieYear>{year}</MovieYear>
-          <MovieRating>{rating}</MovieRating>
+          <MovieYear title="year">{year}</MovieYear>
+          <MovieRating title="rating">{rating}</MovieRating>
         </MovieInfo>
       </MovieBox>
     </MovieItem>

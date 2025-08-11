@@ -144,9 +144,9 @@ function MovieDetail({
       <MovieBox>
         <MovieTitle>{title}</MovieTitle>
         <MovieInfo>
-          <MovieInfoText>{year}</MovieInfoText>
-          <MovieRunTime>{runtime}</MovieRunTime>
-          <MovieRating>{rating}</MovieRating>
+          <MovieInfoText title="year">{year}</MovieInfoText>
+          <MovieRunTime title="runtime">{runtime}</MovieRunTime>
+          <MovieRating title="rating">{rating}</MovieRating>
         </MovieInfo>
         <MovieSummary>{summary}</MovieSummary>
         <MovieGenres>
